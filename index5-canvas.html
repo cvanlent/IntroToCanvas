@@ -34,23 +34,23 @@
 		var canvasHeight = mainCanvas.height;
 		 
 		function drawCircle() {
-			mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+			context.clearRect(0, 0, canvasWidth, canvasHeight);
      
 		    // color in the background
-		    mainContext.fillStyle = "#EEEEEE";
-		    mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+		    context.fillStyle = "#EEEEEE";
+		    context.fillRect(0, 0, canvasWidth, canvasHeight);
 		     
 		    // draw the circle
-		    mainContext.beginPath();
+		    context.beginPath();
 		     
 		    var radius = 75;
 		    //hsp, vsp, rad, sangle, eangle, dir
-		    mainContext.arc(225, 225, radius, 0, Math.PI * 2, false);
-		    mainContext.closePath();
+		    context.arc(225, 225, radius, 0, Math.PI * 2, false);
+		    context.closePath();
 		     
 		    // color in the circle
-		    mainContext.fillStyle = "#006699";
-		    mainContext.fill();
+		    context.fillStyle = "#006699";
+		    context.fill();
 
 		 
 		}
