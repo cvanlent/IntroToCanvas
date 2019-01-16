@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Animation</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header> Header section</header>
+	<main> 
+		<div>
+			<h2>Main</h2>
+
+			<canvas id="myCanvas" height = "450" width = "450"></canvas>
+		</div>
+		<div class = "gallery">
+			<h2> Gallery</h2> 
+			<img src="images/cse1.jpeg" alt="">
+			<img src="images/cse2.jpeg" alt="">
+			<img src="images/cse3.jpeg" alt="">
+			<img src="images/cse4.jpeg" alt="">
+		</div>
+	</main>
+	<footer>Footer</footer>	
+
+
+
+	<script type="text/javascript">
+		var mainCanvas = document.getElementById("myCanvas");
+		var mainContext = mainCanvas.getContext('2d');
+		 
+		var canvasWidth = mainCanvas.width;
+		var canvasHeight = mainCanvas.height;
+		 
+		var angle = 0;
+		var count = 0;
+		 
+		var requestAnimationFrame = window.requestAnimationFrame || 
+		                            window.mozRequestAnimationFrame || 
+		                            window.webkitRequestAnimationFrame || 
+		                            window.msRequestAnimationFrame;
+		 
+		function drawCircle() {
+		    mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+		     
+		    // color in the background
+		    mainContext.fillStyle = "#EEEEEE";
+		    mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+		     
+		    // draw the circle
+		    mainContext.beginPath();
+		     
+		    var radius = 25 + 150 * Math.abs(Math.cos(angle));
+		    mainContext.arc(225, 225, radius, 0, Math.PI * 2, false);
+		    mainContext.closePath();
+		     
+		    // color in the circle
+		    mainContext.fillStyle = "#006699";
+		    mainContext.fill();
+		      
+		    angle += Math.PI / 64;
+		    count++;
+		    console.log(count)
+		    if (count< 500){	     
+			    requestAnimationFrame(drawCircle);
+			}
+		}
+		drawCircle();	
+
+
+
+	</script>
+</body>
+</html>
